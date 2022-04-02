@@ -20,7 +20,7 @@ Check out the Live Version here: `not deployed yet`.
 
 Follow these steps
 
--You need to create a project inside `firebase.google.com` and after that, visit `https://console.developers.google.com/apis/credentials` but make sure to select the project that you have created in `firebase` before.
+- You need to create a project inside `firebase.google.com` and after that, visit `https://console.developers.google.com/apis/credentials` but make sure to select the project that you have created in `firebase` before.
 
 - And then click the `web client` under `OAuth 2.0 Client IDs` and you will find your `client and secrets` there.
 
