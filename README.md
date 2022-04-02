@@ -42,3 +42,7 @@ yarn dev
 - [TaiwlindCSS](https://tailwindcss.com/)
 - [Next-auth](https://www.next-auth.js.org)
 - [Firebase](https://www.firebase.google.com)
+
+## 🙏 Support
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
