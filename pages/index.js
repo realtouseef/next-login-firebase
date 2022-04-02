@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Login from "../components/Login";
 import { useState, useEffect } from "react";
-import { getProviders, getSession, useSession } from "next-auth/react";
+import { getProviders, getSession, useSession, signOut } from "next-auth/react";
 
 export default function Home({ providers }) {
   const [githubRepos, setGithubRepos] = useState([]);
@@ -10,6 +10,8 @@ export default function Home({ providers }) {
   const { data: session } = useSession();
 
   if (!session) return <Login providers={providers} />;
+
+  console.log(session);
 
   useEffect(() => {
     async function fetchData() {
@@ -28,6 +30,23 @@ export default function Home({ providers }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <nav className="my-4 flex items-center justify-end max-w-2xl mx-auto ">
+        <div
+          className="flex items-center cursor-pointer transition-all duration-300 hover:bg-gray-100 py-3 px-10 rounded-full"
+          onClick={signOut}
+        >
+          <img
+            className="w-14 h-14 rounded-full"
+            src={session.user.image}
+            alt=""
+          />
+          <div className="ml-4">
+            <h2 className="text-lg font-medium">{session.user.name}</h2>
+            <p className="text-gray-500">{session.user.email}</p>
+            <p className="text-gray-500 text-xs">click to logout</p>
+          </div>
+        </div>
+      </nav>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Check out projects of{" "}

@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 
 const Login = ({ providers }) => {
   return (
-    <div>
+    <div className="flex items-center justify-center h-screen">
       <Head>
         <title>Login here</title>
       </Head>
@@ -11,8 +11,7 @@ const Login = ({ providers }) => {
         {Object.values(providers).map((provider) => (
           <div key={provider.name}>
             <a
-              href="#_"
-              className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
+              className="cursor-pointer relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group"
               onClick={() => signIn(provider.id, { callback: "/" })}
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
