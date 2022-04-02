@@ -35,7 +35,7 @@ From your command line, clone and run devFolio:
 
 ```bash
 # Clone this repository
-git clone https://github.com/realtouseef/devfolio.git
+git clone https://github.com/realtouseef/next-login-firebase.git
 
 # Go into the repository
 cd devFolio
