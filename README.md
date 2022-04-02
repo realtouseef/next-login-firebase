@@ -18,13 +18,15 @@ Check out the Live Version here: `not deployed yet`.
 
 ## Things required
 
-You need to create a project inside `firebase.google.com` and after that, visit `https://console.developers.google.com/apis/credentials` but make sure to select the project that you have created in `firebase` before.
+Follow these steps
 
-And then click the `web client` under `OAuth 2.0 Client IDs` and you will find your `client and secrets` there.
+-You need to create a project inside `firebase.google.com` and after that, visit `https://console.developers.google.com/apis/credentials` but make sure to select the project that you have created in `firebase` before.
 
-Next you will have to add the deployed or local frontend link in the field under the `Authorized JavaScript origins`. for instance, `http://localhost:3000`.
+- And then click the `web client` under `OAuth 2.0 Client IDs` and you will find your `client and secrets` there.
 
-And add `http://localhost:3000/api/auth/callback/google` under the `Authorized redirect URIs`
+- Next you will have to add the deployed or local frontend link in the field under the `Authorized JavaScript origins`. for instance, `http://localhost:3000`.
+
+- And add `http://localhost:3000/api/auth/callback/google` under the `Authorized redirect URIs`
 
 Save it.
 
