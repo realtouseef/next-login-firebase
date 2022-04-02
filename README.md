@@ -10,10 +10,23 @@ Check out the Live Version here: `not deployed yet`.
 
 - [About](#nextjs-basic-login-with-firebase)
 - [Live-version](#live-version)
+- [Things Required](#things-required)
 - [Make it yours](#make-it-yours)
 - [How to Use](#how-to-use)
 - [Technologies Used](#technologies-used)
 - [Support](#-support)
+
+## Things required
+
+You need to create a project inside `firebase.google.com` and after that, visit `https://console.developers.google.com/apis/credentials` but make sure to select the project that you have created in `firebase` before.
+
+And then click the `web client` under `OAuth 2.0 Client IDs` and you will find your `client and secrets` there.
+
+Next you will have to add the deployed or local frontend link in the field under the `Authorized JavaScript origins`. for instance, `http://localhost:3000`.
+
+And add `http://localhost:3000/api/auth/callback/google` under the `Authorized redirect URIs`
+
+Save it.
 
 ## Make it yours
 
@@ -42,7 +55,7 @@ cd devFolio
 
 # Install dependencies
 npm install
-yarn install
+yarn
 
 # Start a local dev server
 npm start
