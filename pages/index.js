@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Login from "../components/Login";
+import Login from "./login";
 import { useState, useEffect } from "react";
 import { getProviders, getSession, useSession, signOut } from "next-auth/react";
 
@@ -10,8 +10,6 @@ export default function Home({ providers }) {
   const { data: session } = useSession();
 
   if (!session) return <Login providers={providers} />;
-
-  console.log(session);
 
   useEffect(() => {
     async function fetchData() {
