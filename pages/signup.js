@@ -1,31 +1,47 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { user, signup } = useAuth();
+  const [data, setData] = useState({ email: " ", password: " " });
 
-  console.log("email", email, "password", password);
+  async function handleSubmitData(e) {
+    e.preventDefault();
+
+    try {
+      await signup(data.email, data.password);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <>
       <Head>
         <title>Sign up with your Email</title>
       </Head>
-      <form className="max-w-2xl mx-auto grid place-content-center h-screen">
+      <Link href="/">
+        <a className="underline text-xl text-blue-700"> Go back to homepage</a>
+      </Link>
+      <form
+        onSubmit={handleSubmitData}
+        className="max-w-2xl mx-auto grid place-content-center h-screen"
+      >
         <span className="mb-10 text-xl font-medium tracking-wide">
           Create your account using Email
         </span>
         <div className="bg-gray-100 py-16 px-6 rounded-xl">
           <div className="form-group mb-6">
             <label
-              onChange={(e) => setEmail(e.target.value)}
               htmlFor="email"
               className="form-label inline-block mb-2 text-gray-700"
             >
               Email address
             </label>
             <input
+              onChange={(e) => setData({ ...data, email: e.target.value })}
               type="email"
               className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               aria-describedby="emailHelp"
@@ -37,13 +53,13 @@ export default function Signup() {
           </div>
           <div className="form-group mb-6">
             <label
-              onChange={(e) => setPassword(e.target.value)}
               htmlFor="password"
               className="form-label inline-block mb-2 text-gray-700"
             >
               Password
             </label>
             <input
+              onChange={(e) => setData({ ...data, password: e.target.value })}
               type="password"
               className="form-control block w-full px-3 py-1.5 text-base font-normaltext-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Password"
