@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 export default function Signup() {
-  const { user, signup } = useAuth();
+  const { signup } = useAuth();
   const [data, setData] = useState({ email: " ", password: " " });
 
   async function handleSubmitData(e) {
@@ -16,7 +16,7 @@ export default function Signup() {
       console.log(err);
     }
   }
-
+  console.log(data);
   return (
     <>
       <Head>
