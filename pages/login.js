@@ -2,16 +2,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const { login } = useAuth();
   const [data, setData] = useState({ email: " ", password: " " });
+  const router = useRouter();
 
   async function handleSubmitData(e) {
     e.preventDefault();
 
     try {
       await login(data.email, data.password);
+      router.push("/");
     } catch (err) {
       console.error(err);
     }
