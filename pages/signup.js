@@ -13,7 +13,7 @@ export default function Signup() {
     try {
       await signup(data.email, data.password);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
   console.log(data);

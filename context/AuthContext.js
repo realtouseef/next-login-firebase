@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -37,7 +38,7 @@ const AuthContextProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = async () => {
+  const logout = async (auth) => {
     setUser(null);
     await signOut(auth);
   };
