@@ -1,6 +1,6 @@
 # NextJS Basic Login with Firebase
 
-This is a basic [Next.js](https://nextjs.org) template that uses [Next-Auth](https://next-auth.js.org) and [Firebase](https://firebase.google.com) to authenticate users and shows my GitHub repos.
+This is a basic [Next.js](https://nextjs.org) template and uses [Firebase](https://firebase.google.com) to authenticate users and shows the GitHub repos.
 
 ## Live Version
 
@@ -26,21 +26,22 @@ Follow these steps
 
 - Next you will have to add the deployed or local frontend link in the field under the `Authorized JavaScript origins`. for instance, `http://localhost:3000`.
 
-- And add `http://localhost:3000/api/auth/callback/google` under the `Authorized redirect URIs`
-
 Save it.
 
 ## Make it yours
 
-You can make it yours by creating a `.env` file and getting the `Client ID and Secret` by following the steps mentioned in the [next-auth docs](https://next-auth.js.org/providers/) because they are descriptive and well-documented.
-
 ```bash
 
-GOOGLE_CLIENT_ID=
-
-GOOGLE_CLIENT_SECRET=
-
 NEXT_PUBLIC_GITHUB_REPO_URL="api.github.com/users/<username>/repos"
+
+
+
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
 
 ```
 
@@ -68,7 +69,6 @@ yarn dev
 
 - [NextJS](https://nextjs.org/)
 - [TaiwlindCSS](https://tailwindcss.com/)
-- [Next-auth](https://www.next-auth.js.org)
 - [Firebase](https://www.firebase.google.com)
 
 ## 🙏 Support
