@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../context/AuthContext";
+import Link from "next/link";
 
 export default function Home() {
   const [githubRepos, setGithubRepos] = useState([]);
@@ -38,8 +39,12 @@ export default function Home() {
           </a>
         ) : (
           <div className="flex items-center space-x-4">
-            <div className="btn-gray">Login</div>{" "}
-            <div className="btn-gray">Signup</div>
+            <Link href="/login">
+              <a className="btn-gray">Login</a>
+            </Link>{" "}
+            <Link href="/signup">
+              <a className="btn-gray">Signup</a>
+            </Link>
           </div>
         )}
       </nav>
