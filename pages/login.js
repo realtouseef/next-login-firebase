@@ -41,7 +41,7 @@ const Login = () => {
         {error && (
           <div
             onChange={timeout}
-            className="text-center absolute top-10 left-0 right-0"
+            className="text-center absolute bottom-20 left-0 right-0"
           >
             <a className="px-4 text-sm space-y-2 py-3 bg-red-100 text-red-500 font-medium rounded-md">
               {" "}
