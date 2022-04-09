@@ -5,9 +5,19 @@ import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 
 const Login = () => {
-  const { login } = useAuth();
-  const [data, setData] = useState({ email: " ", password: " " });
+  const { login, user } = useAuth();
   const router = useRouter();
+
+  const [data, setData] = useState({ email: " ", password: " " });
+  const [error, setError] = useState(false);
+
+  const timer = setTimeout(() => {
+    setError(false);
+  }, 9000);
+
+  function timeout() {
+    clearTimeout(timer);
+  }
 
   async function handleSubmitData(e) {
     e.preventDefault();
@@ -15,8 +25,10 @@ const Login = () => {
     try {
       await login(data.email, data.password);
       router.push("/");
+      console.log(user);
     } catch (err) {
-      console.error(err);
+      // console.log(err.message);
+      setError(err);
     }
   }
 
@@ -26,6 +38,17 @@ const Login = () => {
         <title>Login here</title>
       </Head>
       <>
+        {error && (
+          <div
+            onChange={timeout}
+            className="text-center absolute top-10 left-0 right-0"
+          >
+            <a className="px-4 text-sm space-y-2 py-3 bg-red-100 text-red-500 font-medium rounded-md">
+              {" "}
+              {error.message}
+            </a>
+          </div>
+        )}
         <form
           onSubmit={handleSubmitData}
           className="max-w-2xl mx-auto grid place-content-center h-screen"
