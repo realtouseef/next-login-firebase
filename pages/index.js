@@ -30,7 +30,7 @@ export default function Home() {
       <nav className="my-4 flex items-center justify-end max-w-2xl mx-auto ">
         {user ? (
           <a
-            className="btn-gray"
+            className="btn-blue"
             onClick={() => {
               logout(), router.push("/login");
             }}
@@ -40,10 +40,10 @@ export default function Home() {
         ) : (
           <div className="flex items-center space-x-4">
             <Link href="/login">
-              <a className="btn-gray">Login</a>
+              <a className="btn-blue">Login</a>
             </Link>{" "}
             <Link href="/signup">
-              <a className="btn-gray">Signup</a>
+              <a className="btn-blue">Signup</a>
             </Link>
           </div>
         )}

@@ -27,8 +27,8 @@ const Login = () => {
       router.push("/");
       console.log(user);
     } catch (err) {
-      // console.log(err.message);
       setError(err);
+      console.error(err);
     }
   }
 
@@ -40,7 +40,7 @@ const Login = () => {
       <>
         {error && (
           <div
-            onChange={timeout}
+            onErrorCapture={timeout}
             className="text-center absolute bottom-20 left-0 right-0"
           >
             <a className="px-4 text-sm space-y-2 py-3 bg-red-100 text-red-500 font-medium rounded-md">
