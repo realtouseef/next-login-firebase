@@ -32,7 +32,7 @@ Save it.
 
 ```bash
 
-NEXT_PUBLIC_GITHUB_REPO_URL="api.github.com/users/<username>/repos"
+NEXT_PUBLIC_GITHUB_REPO_URL="api.github.com/users/<username>"
 
 
 

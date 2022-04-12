@@ -7,19 +7,20 @@ import {useRouter} from 'next/router'
 export default function Signup() {
   const router = useRouter()
   const { signup } = useAuth();
-  const [data, setData] = useState({ email: " ", password: " " });
+  const [data, setData] = useState({ username: '', email: " ", password: " " });
 
   async function handleSubmitData(e) {
     e.preventDefault();
 
     try {
-      await signup(data.email, data.password);
+      await signup(data.username, data.email, data.password);
       router.push("/login")
+
+
     } catch (err) {
       console.error(err);
     }
   }
-  console.log(data);
   return (
     <>
       <Head>
@@ -36,6 +37,7 @@ export default function Signup() {
           Create your account using Email
         </span>
         <div className="bg-gray-100 py-16 px-6 rounded-xl">
+
           <div className="form-group mb-6">
             <label
               htmlFor="email"
@@ -46,9 +48,10 @@ export default function Signup() {
             <input
               onChange={(e) => setData({ ...data, email: e.target.value })}
               type="email"
-              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              className="form-field"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              required
             />
             <small id="emailHelp" className="block mt-1 text-xs text-gray-600">
               We'll never share your email with anyone else.
@@ -64,8 +67,9 @@ export default function Signup() {
             <input
               onChange={(e) => setData({ ...data, password: e.target.value })}
               type="password"
-              className="form-control block w-full px-3 py-1.5 text-base font-normaltext-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              className="form-field"
               placeholder="Password"
+              required
             />
           </div>
           <button

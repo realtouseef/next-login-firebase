@@ -12,9 +12,10 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(process.env.NEXT_PUBLIC_GITHUB_REPO_URL);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_GITHUB_REPO_URL}/repos`);
       const data = await res.json();
       setGithubRepos(data);
+
     }
     fetchData();
   }, [setGithubRepos]);
@@ -29,6 +30,8 @@ export default function Home() {
 
       <nav className="my-4 flex items-center justify-end max-w-2xl mx-auto ">
         {user ? (
+          <>
+          <p className="mr-2 px-4 py-2 rounded-full hover:bg-gray-100 text-gray-500">{user.email}</p>
           <a
             className="btn-blue"
             onClick={() => {
@@ -37,6 +40,7 @@ export default function Home() {
           >
             Logout
           </a>
+          </>
         ) : (
           <div className="flex items-center space-x-4">
             <Link href="/login">
@@ -52,19 +56,17 @@ export default function Home() {
         <h1 className={styles.title}>
           Check out projects of{" "}
           <a
-            href="https://github.com/realtouseef"
-            target="_blank"
-            rel="noopener noreferrer"
+           className="text-blue-700 cursor-pointer font-medium"
           >
-            Touseef ibn Khaleel
+        Touseef ibn Khaleel
           </a>
         </h1>
 
         <div className={styles.grid}>
           {githubRepos &&
             githubRepos.map(({ id, html_url, name, description }) => (
-              <a key={id} href={html_url} className={styles.card}>
-                <h2>{name} &rarr;</h2>
+              <a target="_blank" rel="noreferrer noopener"  key={id} href={html_url} className={styles.card}>
+                <h2 className="font-medium">{name} &rarr;</h2>
                 <p>
                   {description ??
                     `Either this repo is forked or doesn't have a description`}
