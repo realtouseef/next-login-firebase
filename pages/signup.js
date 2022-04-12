@@ -2,8 +2,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import {useRouter} from 'next/router'
 
 export default function Signup() {
+  const router = useRouter()
   const { signup } = useAuth();
   const [data, setData] = useState({ email: " ", password: " " });
 
@@ -12,6 +14,7 @@ export default function Signup() {
 
     try {
       await signup(data.email, data.password);
+      router.push("/login")
     } catch (err) {
       console.error(err);
     }
