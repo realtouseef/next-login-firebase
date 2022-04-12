@@ -54,7 +54,7 @@ export default function Signup() {
               required
             />
             <small id="emailHelp" className="block mt-1 text-xs text-gray-600">
-              We'll never share your email with anyone else.
+             { `We'll never share your email with anyone else.`}
             </small>
           </div>
           <div className="form-group mb-6">
