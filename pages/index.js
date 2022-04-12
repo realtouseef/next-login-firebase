@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Welcome</title>
+        <title>Welcome {user.email.split('@')[0]}</title>
         <meta name="description" content="created by @realtouseef on GitHub" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
